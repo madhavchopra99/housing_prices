@@ -1,22 +1,22 @@
-from django.http import JsonResponse
+from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 
 from . import util
 
 
-def home(request):
+def home(request: HttpRequest) -> HttpResponse:
     return render(request, "BHM/app.html")
 
 
-def get_location_names(request):
+def get_location_names(request: HttpRequest) -> JsonResponse:
     response = JsonResponse({"locations": util.get_location_names()})
 
     return response
 
 
 @csrf_exempt
-def predict_home_price(request):
+def predict_home_price(request: HttpRequest) -> JsonResponse | None:
 
     if request.method == "POST":
         form = request.POST

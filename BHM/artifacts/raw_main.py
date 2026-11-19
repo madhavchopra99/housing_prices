@@ -35,7 +35,7 @@ df3["bhk"] = df3["size"].apply(lambda x: int(x.split(" ")[0]))
 def is_float(x):
     try:
         float(x)
-    except:
+    except ValueError:
         return False
     return True
 
@@ -50,7 +50,7 @@ def convert_sqft_to_num(x):
 
     try:
         return float(x)
-    except:
+    except ValueError:
         return None
 
 

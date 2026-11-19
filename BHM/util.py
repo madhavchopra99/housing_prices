@@ -11,12 +11,11 @@ __data_columns = None
 __model = None
 
 
-def get_estimated_price(location, sqft, bhk, bath):
+def get_estimated_price(location: str, sqft: float, bhk: int, bath: int) -> float:
 
     try:
         loc_index = __data_columns.index(location.lower())
-
-    except:
+    except ValueError:
         loc_index = -1
 
     x = np.zeros(len(__data_columns))
@@ -30,11 +29,11 @@ def get_estimated_price(location, sqft, bhk, bath):
     return round(__model.predict([x])[0], 2)
 
 
-def get_location_names():
+def get_location_names() -> list[str]:
     return __locations
 
 
-def load_saved_artifacts():
+def load_saved_artifacts() -> None:
     print("loading saved artifacts...start")
 
     global __data_columns
