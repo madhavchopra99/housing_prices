@@ -1,0 +1,41 @@
+[project]
+name = "housing-prices"
+version = "0.1.0"
+description = "Django web application for Bengaluru house price prediction using linear regression."
+
+readme = "README.md"
+authors = [
+    { name = "Madhav Chopra", email = "madhavchopra99@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "asgiref==3.13.0",
+    "contourpy==1.4.0",
+    "cycler==0.12.1",
+    "django==6.1.3",
+    "django-cors-headers==4.9.0",
+    "fonttools==4.68.0",
+    "joblib==1.6.0",
+    "kiwisolver==1.5.1",
+    "matplotlib==3.11.2",
+    "numpy==2.5.5",
+    "packaging==26.3",
+    "pandas==3.1.1",
+    "pillow==13.0.0",
+    "pyparsing==3.3.3",
+    "python-dateutil==4.0.0",
+    "pytz==2026.6",
+    "scikit-learn==1.9.1",
+    "scipy==1.18.1",
+    "six==1.17.0",
+    "sqlparse==0.6.1",
+    "threadpoolctl==3.8.0",
+    "tzdata==2026.6"
+]
+
+[project.scripts]
+housing-prices = "housing_prices:main"
+
+[build-system]
+requires = ["uv_build>=0.13.9,<0.14.0"]
+build-backend = "uv_build"

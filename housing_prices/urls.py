@@ -13,20 +13,20 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path
+
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib import admin
+from django.urls import path
+
 from BHM import views as BHM
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', BHM.home, name='home'),
-    path('get_location_names/', BHM.get_location_names, name='get_location_names'),
-    path('predict_home_price/', BHM.predict_home_price, name='predict_home_price'),
-
+    path("admin/", admin.site.urls),
+    path("", BHM.home, name="home"),
+    path("get_location_names/", BHM.get_location_names, name="get_location_names"),
+    path("predict_home_price/", BHM.predict_home_price, name="predict_home_price"),
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL,
-                          document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

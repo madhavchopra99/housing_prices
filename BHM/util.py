@@ -1,7 +1,8 @@
 import json
-import pickle
-import numpy as np
 import os
+import pickle
+
+import numpy as np
 
 dir = os.path.dirname(__file__)
 
@@ -42,21 +43,20 @@ def load_saved_artifacts():
 
     filename = os.path.join(dir, "artifacts/columns.json")
 
-    with open(filename, 'r') as f:
-        __data_columns = json.load(f)['data_columns']
+    with open(filename, "r") as f:
+        __data_columns = json.load(f)["data_columns"]
         __locations = __data_columns[3:]
 
     filename = os.path.join(dir, "artifacts/banglore_home_price_model.pickle")
 
-    with open(filename, 'rb') as f:
+    with open(filename, "rb") as f:
         __model = pickle.load(f)
 
     print("loading saved artifacts...done")
 
 
 load_saved_artifacts()
-if __name__ == '__main__':
-
+if __name__ == "__main__":
     print(get_location_names())
     # print(get_estimated_price('1st Phase JP Nagar', 1000, 3, 3))
     # print(get_estimated_price('1st Phase JP Nagar', 1000, 2, 2))
